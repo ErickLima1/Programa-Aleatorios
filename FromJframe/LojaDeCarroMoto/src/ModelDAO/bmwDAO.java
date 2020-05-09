@@ -51,7 +51,7 @@ public class bmwDAO {
          return idBmw;
     }
     //Buscando toda a lista da Tabela ('Eu Acho que vai busca toda a lista da tabela');
-    public  List<Bmw> getTodosTabelaBmw() {
+    public List<Bmw> getTodosTabelaBmw() {
         EntityManager em = new ConnectionFactory().getConnection();
         List<Bmw> tabelaBmw = null;
         
@@ -64,5 +64,8 @@ public class bmwDAO {
         }
         return tabelaBmw;
     }
+    
+    
+    
     
 }

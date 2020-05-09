@@ -27,33 +27,8 @@ public class TelaCarro extends javax.swing.JFrame {
      */
     public TelaCarro() {
      initComponents();
-     EntityManager em = new ConnectionFactory().getConnection();  
-     bmwDAO bmw = new bmwDAO();
-      DefaultTableModel tabela = new DefaultTableModel();
-      
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        tabela.addColumn("id");
-        
-      for(Bmw c: bmw.getTodosTabelaBmw()) {
-          tabela.addRow(
-          new Object[] {
-              c.getIdfinalplaca(),
-              c.getNomecarro(),
-              c.getQuantidadecarros(),
-              c.getCor(),
-              c.getPortas(),
-              c.getCambio(),
-              c.getValor()
-          }
-          );
-      }
+     
+    
       
       }
     /**
@@ -110,7 +85,7 @@ public class TelaCarro extends javax.swing.JFrame {
             }
         });
         jPanelInternal.add(jButtonTabelaBmw);
-        jButtonTabelaBmw.setBounds(-3, 0, 90, 32);
+        jButtonTabelaBmw.setBounds(10, 0, 90, 23);
 
         jTableCarros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,7 +108,6 @@ public class TelaCarro extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Tabela De Carro:");
         jInternalFrameTelaBemVindo.getContentPane().add(jLabel1);
         jLabel1.setBounds(20, 10, 160, 30);
@@ -150,7 +124,6 @@ public class TelaCarro extends javax.swing.JFrame {
         jMenubarraCarro.setForeground(new java.awt.Color(204, 204, 204));
 
         jMenuVoltaCarro.setBackground(new java.awt.Color(204, 204, 204));
-        jMenuVoltaCarro.setForeground(new java.awt.Color(0, 0, 0));
         jMenuVoltaCarro.setText("Volta ");
 
         jMenuIVoltaTelainicial.setText("Volta Pra tela inicial");
@@ -164,7 +137,6 @@ public class TelaCarro extends javax.swing.JFrame {
         jMenubarraCarro.add(jMenuVoltaCarro);
 
         jMenu4.setBackground(new java.awt.Color(204, 204, 204));
-        jMenu4.setForeground(new java.awt.Color(0, 0, 0));
         jMenu4.setText("Abrirt Tabela de carro");
 
         jMenuItemAbrirTabelaCarro.setText("Abrir Tabela Carro");
@@ -178,12 +150,10 @@ public class TelaCarro extends javax.swing.JFrame {
         jMenubarraCarro.add(jMenu4);
 
         jMenu1.setBackground(new java.awt.Color(204, 204, 204));
-        jMenu1.setForeground(new java.awt.Color(0, 0, 0));
         jMenu1.setText("Vende carro");
         jMenubarraCarro.add(jMenu1);
 
         jMenuSair.setBackground(new java.awt.Color(204, 204, 204));
-        jMenuSair.setForeground(new java.awt.Color(0, 0, 0));
         jMenuSair.setText("Sair");
 
         jMenuItemSair.setText("Sair");
@@ -230,6 +200,32 @@ public class TelaCarro extends javax.swing.JFrame {
 
     private void jButtonTabelaBmwActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTabelaBmwActionPerformed
         // TODO add your handling code here:
+         bmwDAO bmw = new bmwDAO();
+         DefaultTableModel tabela = new DefaultTableModel();
+         this.jTableCarros.setModel(tabela);
+      
+        tabela.addColumn("id");
+        tabela.addColumn("nomecarro");
+        tabela.addColumn("ano");
+        tabela.addColumn("quantidadecarros");
+        tabela.addColumn("cor");
+        tabela.addColumn("portas");
+        tabela.addColumn("cambio");
+        tabela.addColumn("valor");
+        
+      for(Bmw c: bmw.getTodosTabelaBmw()) {
+          tabela.addRow(
+          new Object[] {
+              c.getIdfinalplaca(),
+              c.getNomecarro(),
+              c.getQuantidadecarros(),
+              c.getCor(),
+              c.getPortas(),
+              c.getCambio(),
+              c.getValor()
+          }
+          );
+      }
     }//GEN-LAST:event_jButtonTabelaBmwActionPerformed
 
     /**
